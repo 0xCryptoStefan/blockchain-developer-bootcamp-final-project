@@ -1,0 +1,26 @@
+{
+  "name": "blockchain-developer-bootcamp-final-project",
+  "version": "1.0.0",
+  "description": "## My aims <ul>   <li>I want to connect a front-end dApp to a back-end Smart Contract</li>   <li>I want to store something on the Blockchain as an immutable object</li>   <li>I want to create something that is fun</li>   <li>I want to create something that could have additional utility</li> </ul>",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project/issues"
+  },
+  "homepage": "https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "4.3.2"
+  }
+}
