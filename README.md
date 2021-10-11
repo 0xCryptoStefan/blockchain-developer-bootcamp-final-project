@@ -2,7 +2,8 @@
 
 ## Dependencies
 `npm init -y`<br/>
-`npm install --save-exact openzeppelin-solidity`
+`npm add`<br/>
+`npm install --save-exact openzeppelin-solidity` -  is this correct?
 
 ## Starting the client application
 `cd client`<br/>
