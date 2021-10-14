@@ -71,9 +71,28 @@ describe("Minting", () => {
 });
 
 
-// these Events tests don't work!
+// these Events tests work!
 describe("Events", () => {
-  it("should emit a Minted event when an NFT is minted", async () => {
+  it("should now break the OpenZeppelin event for Transfer", async () => {
+      let eventEmitted = false;
+      const uri = "https://example.com"; // uri is set to a specific value only for testing
+      const tx = await smartContract.mint(accounts[0], uri);
+
+      // console.log("Event 0 Emitted: " + tx.logs[0].event); // used these to validate the tx.logs[].event structure and how to call the event from the logs
+      // console.log("Event 1 Emitted: " + tx.logs[1].event);
+
+      if (tx.logs[0].event == "Transfer") {
+        eventEmitted = true;
+      }
+  
+      assert.equal(
+        eventEmitted,
+        true,
+        "The OpenZeppelin event for Transfer has been broken",
+      );
+    });
+
+    it("should emit a Minted event when an NFT is minted", async () => {
       let eventEmitted = false;
       const uri = "https://example.com"; // uri is set to a specific value only for testing
       const tx = await smartContract.mint(accounts[0], uri);
