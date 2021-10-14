@@ -23,7 +23,7 @@ contract Minter is ERC721, Ownable {
 */
 
 // <LogForSale event: sku arg>
-// event Minted(uint256 newID);
+event Minted(uint256 newID);
 // <LogSold event: sku arg>
 // event LogSold(uint sku);
 
@@ -78,7 +78,7 @@ contract Minter is ERC721, Ownable {
         _setTokenURI(newID, uri); // this function calls the internal function to set the URI based on the input to THIS function (uri) and the NFT to be minted (newID)
         // check this next line is secure to increment here rather than earlier based on the points in the course around security
         _tokenIDs.increment(); // increase the value of tokenIDs at the end of the minting function so that the next mint uses the correct value when _tokenIDs.current() is called
-        // emit Minted(newID); // added an emit event to allow verification test - don't think this works!
+        emit Minted(newID); // added an emit event to allow verification test - don't think this works!
         return newID;
     }
 
