@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project#readme",
   "dependencies": {
+    "@truffle/hdwallet-provider": "^1.5.1",
+    "dotenv": "^10.0.0",
     "openzeppelin-solidity": "4.3.2"
   }
 }

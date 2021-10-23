@@ -3,7 +3,9 @@
 ## Dependencies
 `npm init -y`<br/>
 `npm add`<br/>
-`npm install --save-exact openzeppelin-solidity` -  is this correct?
+`npm install --save-exact openzeppelin-solidity` -  is this correct?<br/>
+`npm install dotenv`<br/>
+`npm install @truffle/hdwallet-provider`
 
 ## Starting the client application
 `cd client`<br/>
