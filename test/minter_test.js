@@ -73,7 +73,7 @@ describe("Minting", () => {
 
 // these Events tests work!
 describe("Events", () => {
-  it("should now break the OpenZeppelin event for Transfer", async () => {
+  it("should not break the OpenZeppelin event for Transfer", async () => {
       let eventEmitted = false;
       const uri = "https://example.com"; // uri is set to a specific value only for testing
       const tx = await smartContract.mint(accounts[0], uri);

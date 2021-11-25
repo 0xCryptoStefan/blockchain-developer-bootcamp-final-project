@@ -1,9 +1,9 @@
 {
   "contractName": "Counters",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Matt Condon (@shrugs)\",\"details\":\"Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number of elements in a mapping, issuing ERC721 ids, or counting request ids. Include with `using Counters for Counters.Counter;`\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Counters\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"openzeppelin-solidity/contracts/utils/Counters.sol\":\"Counters\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"openzeppelin-solidity/contracts/utils/Counters.sol\":{\"keccak256\":\"0x78450f4e3b722cce467b21e285f72ce5eaf361e9ba9dd2241a413926246773cd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f103065051300cd995fd4599ba91188d4071b92175b52f26110e02db091617c0\",\"dweb:/ipfs/QmSyDz67R2HCypDE8Pacn3voVwxw9x17NM66q47YgBnGqc\"]}},\"version\":1}",
-  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212208447c42d785ea63906fd030e3ff20130b229804940d23ed12ff8382effd3203464736f6c63430008090033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212208447c42d785ea63906fd030e3ff20130b229804940d23ed12ff8382effd3203464736f6c63430008090033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Matt Condon (@shrugs)\",\"details\":\"Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number of elements in a mapping, issuing ERC721 ids, or counting request ids. Include with `using Counters for Counters.Counter;`\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Counters\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"openzeppelin-solidity/contracts/utils/Counters.sol\":\"Counters\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"openzeppelin-solidity/contracts/utils/Counters.sol\":{\"keccak256\":\"0x78450f4e3b722cce467b21e285f72ce5eaf361e9ba9dd2241a413926246773cd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f103065051300cd995fd4599ba91188d4071b92175b52f26110e02db091617c0\",\"dweb:/ipfs/QmSyDz67R2HCypDE8Pacn3voVwxw9x17NM66q47YgBnGqc\"]}},\"version\":1}",
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122043fa431abae0e48b925dcbfa081468ef218b08e7c5210ece1207d37f195a02c364736f6c63430008000033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122043fa431abae0e48b925dcbfa081468ef218b08e7c5210ece1207d37f195a02c364736f6c63430008000033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
@@ -36,7 +36,6 @@
       {
         "abstract": false,
         "baseContracts": [],
-        "canonicalName": "Counters",
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
@@ -51,7 +50,6 @@
           1473
         ],
         "name": "Counters",
-        "nameLocation": "378:8:7",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
@@ -63,7 +61,6 @@
                 "id": 1404,
                 "mutability": "mutable",
                 "name": "_value",
-                "nameLocation": "740:6:7",
                 "nodeType": "VariableDeclaration",
                 "scope": 1405,
                 "src": "732:14:7",
@@ -87,7 +84,6 @@
               }
             ],
             "name": "Counter",
-            "nameLocation": "400:7:7",
             "nodeType": "StructDefinition",
             "scope": 1473,
             "src": "393:374:7",
@@ -139,7 +135,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "current",
-            "nameLocation": "782:7:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1409,
@@ -150,7 +145,6 @@
                   "id": 1408,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "806:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1417,
                   "src": "790:23:7",
@@ -191,7 +185,6 @@
                   "id": 1411,
                   "mutability": "mutable",
                   "name": "",
-                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 1417,
                   "src": "838:7:7",
@@ -304,7 +297,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "increment",
-            "nameLocation": "900:9:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1421,
@@ -315,7 +307,6 @@
                   "id": 1420,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "926:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1431,
                   "src": "910:23:7",
@@ -375,7 +366,6 @@
                       "id": 1438,
                       "mutability": "mutable",
                       "name": "value",
-                      "nameLocation": "1091:5:7",
                       "nodeType": "VariableDeclaration",
                       "scope": 1458,
                       "src": "1083:13:7",
@@ -645,7 +635,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "decrement",
-            "nameLocation": "1029:9:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1435,
@@ -656,7 +645,6 @@
                   "id": 1434,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "1055:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1459,
                   "src": "1039:23:7",
@@ -775,7 +763,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "reset",
-            "nameLocation": "1264:5:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1463,
@@ -786,7 +773,6 @@
                   "id": 1462,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "1286:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1472,
                   "src": "1270:23:7",
@@ -832,8 +818,7 @@
           }
         ],
         "scope": 1474,
-        "src": "370:971:7",
-        "usedErrors": []
+        "src": "370:971:7"
       }
     ],
     "src": "33:1309:7"
@@ -863,7 +848,6 @@
       {
         "abstract": false,
         "baseContracts": [],
-        "canonicalName": "Counters",
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
@@ -878,7 +862,6 @@
           1473
         ],
         "name": "Counters",
-        "nameLocation": "378:8:7",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
@@ -890,7 +873,6 @@
                 "id": 1404,
                 "mutability": "mutable",
                 "name": "_value",
-                "nameLocation": "740:6:7",
                 "nodeType": "VariableDeclaration",
                 "scope": 1405,
                 "src": "732:14:7",
@@ -914,7 +896,6 @@
               }
             ],
             "name": "Counter",
-            "nameLocation": "400:7:7",
             "nodeType": "StructDefinition",
             "scope": 1473,
             "src": "393:374:7",
@@ -966,7 +947,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "current",
-            "nameLocation": "782:7:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1409,
@@ -977,7 +957,6 @@
                   "id": 1408,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "806:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1417,
                   "src": "790:23:7",
@@ -1018,7 +997,6 @@
                   "id": 1411,
                   "mutability": "mutable",
                   "name": "",
-                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 1417,
                   "src": "838:7:7",
@@ -1131,7 +1109,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "increment",
-            "nameLocation": "900:9:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1421,
@@ -1142,7 +1119,6 @@
                   "id": 1420,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "926:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1431,
                   "src": "910:23:7",
@@ -1202,7 +1178,6 @@
                       "id": 1438,
                       "mutability": "mutable",
                       "name": "value",
-                      "nameLocation": "1091:5:7",
                       "nodeType": "VariableDeclaration",
                       "scope": 1458,
                       "src": "1083:13:7",
@@ -1472,7 +1447,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "decrement",
-            "nameLocation": "1029:9:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1435,
@@ -1483,7 +1457,6 @@
                   "id": 1434,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "1055:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1459,
                   "src": "1039:23:7",
@@ -1602,7 +1575,6 @@
             "kind": "function",
             "modifiers": [],
             "name": "reset",
-            "nameLocation": "1264:5:7",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 1463,
@@ -1613,7 +1585,6 @@
                   "id": 1462,
                   "mutability": "mutable",
                   "name": "counter",
-                  "nameLocation": "1286:7:7",
                   "nodeType": "VariableDeclaration",
                   "scope": 1472,
                   "src": "1270:23:7",
@@ -1659,19 +1630,18 @@
           }
         ],
         "scope": 1474,
-        "src": "370:971:7",
-        "usedErrors": []
+        "src": "370:971:7"
       }
     ],
     "src": "33:1309:7"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-23T22:57:47.231Z",
+  "updatedAt": "2021-11-25T09:23:38.566Z",
   "devdoc": {
     "author": "Matt Condon (@shrugs)",
     "details": "Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number of elements in a mapping, issuing ERC721 ids, or counting request ids. Include with `using Counters for Counters.Counter;`",

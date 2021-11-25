@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0; // using ^0.8.0 as getting an error but would like to fix the version to 0.8.0 specifically based on the sceurity recommendation in the course
+pragma solidity 0.8.0; // using ^0.8.0 as getting an error but would like to fix the version to 0.8.0 specifically based on the sceurity recommendation in the course
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
 import "openzeppelin-solidity/contracts/utils/Counters.sol";
