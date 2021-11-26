@@ -60,14 +60,25 @@ describe("Permissions", () => {
 });
 
 describe("Minting", () => {
-  it("mints an NFT successfully", async () => {
-    const uri = "https://example.com"; // uri is set to a specific value only for testing
-    await smartContract.mint(accounts[0], uri); // mint and NFT to accounts[0] with the associated uri
+  it("mints an NFT successfully to the owner", async () => {
+    const uri = "https://example1.com"; // uri is set to a specific value only for testing
+    await smartContract.mint(accounts[0], uri); // mint an NFT to accounts[0] with the associated uri
     const tokenURI = await smartContract.tokenURI(0); // get the uri associated with ID 0
     const balanceOfOwner = await smartContract.balanceOf(accounts[0]); // get the balance of tokens of accounts[0]
     assert.equal(tokenURI, uri); // check that the tokenURI set is the same as the input variable
     assert.equal(balanceOfOwner, 1); // check that the account balance of accounts[0] is correct having minted 1 NFT
+    // console.log(tokenURI); // used this to validate the URI being passed through
   });
+  
+  it("mints an NFT successfully to someone other than the owner", async () => {
+    const uri = "https://example2.com"; // uri is set to a specific value only for testing
+    await smartContract.mint(accounts[1], uri); // mint an NFT to accounts[0] with the associated uri
+    const tokenURI = await smartContract.tokenURI(1); // get the uri associated with ID 1
+    const balanceOfOwner = await smartContract.balanceOf(accounts[1]); // get the balance of tokens of accounts[0]
+    assert.equal(tokenURI, uri); // check that the tokenURI set is the same as the input variable
+    assert.equal(balanceOfOwner, 1); // check that the account balance of accounts[0] is correct having minted 1 NFT
+    // console.log(tokenURI); // used this to validate the URI being passed through
+  });  
 });
 
 
