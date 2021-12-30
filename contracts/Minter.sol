@@ -94,4 +94,15 @@ event Minted(uint256 newID);
         string memory _tokenURI = _tokenURIs[tokenID]; // get the value of the URI for tokenID from the _tokenURIs mapping
         return _tokenURI;
     }
+
+
+    /// @notice This function is to allow the contract owner to withdraw the funds received from the contract
+    /// @dev No special notes. Uses the onlyOwner modifier from the OpenZeppelin templates
+    // No fees implemented yet so this function will not have anything to withdraw from the contract
+    function withdraw() public payable onlyOwner {
+    require(payable(msg.sender).send(address(this).balance));
+    }
+
+
+
 }

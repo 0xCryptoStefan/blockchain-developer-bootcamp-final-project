@@ -20039,16 +20039,9 @@
     "name": "solc",
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
-  "networks": {
-    "1633959949541": {
-      "events": {},
-      "links": {},
-      "address": "0x243F6799b7D4a0433Dc89742294DBA94a3AA84aE",
-      "transactionHash": "0x4afb1079baec6e7a9e6676faf1cca05eb72005af26b85ab10eedd47ee0c703c1"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-25T09:23:38.585Z",
+  "updatedAt": "2021-12-30T11:22:20.737Z",
   "devdoc": {
     "author": "0xCryptoStefan",
     "details": "This contract inherits from the OpenZeppelin standard templates specified above and add specific function overrides where required",
