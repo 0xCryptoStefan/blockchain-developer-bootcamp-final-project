@@ -1,8 +1,8 @@
 ## To Do List
 
 ### Doing
-- [ ] Write Minter smart contract
-- [ ] Comment Minter smart contract to natspec standard
+- [ ] Add withdraw function
+- [ ] Add mint fee and update minting function
 
 ### Backlog
 - [ ] Add withdraw function
@@ -23,3 +23,5 @@
 ### Done
 - [x] Create folder structure
 - [x] Write 5 unit tests
+- [x] Write Minter smart contract
+- [x] Comment Minter smart contract to natspec standard

@@ -1,6 +1,6 @@
 
 // Ganache instance of contract
-const contractAddress = "0x11D9f34924eb7719BF5bf6DEa78c977e620c83EB"
+const contractAddress = "0x22873605EdE5f3E75E0473d703155aE4E7152D11"
 
 // Ganache-deployed contract ABI
 const contractABI = [
