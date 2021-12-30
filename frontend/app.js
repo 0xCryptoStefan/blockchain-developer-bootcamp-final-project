@@ -566,7 +566,7 @@ ssGetValue.onclick = async () => {
     console.log(tokens)
 
     const ssDisplayValue = document.getElementById("ss-display-value")
-    ssDisplayValue.innerHTML = "Current Simple Storage Value: " + tokens
+    ssDisplayValue.innerHTML = "Minted NFTs: " + tokens
     
 }
 
