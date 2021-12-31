@@ -1,6 +1,6 @@
 
 // Ganache instance of contract
-const contractAddress = "0x22873605EdE5f3E75E0473d703155aE4E7152D11"
+const contractAddress = "0x177f374f1e271214b306FDEc707B71d7cEF16F8A"
 
 // Ganache-deployed contract ABI
 const contractABI = [
@@ -501,7 +501,12 @@ window.addEventListener('load', function() {
         await ethereum.request({ method: 'eth_requestAccounts'})
 
         const mmCurrentAccount = document.getElementById('mm-current-account');
-        mmCurrentAccount.innerHTML = "Here's your current account: " + ethereum.selectedAddress    
+        mmCurrentAccount.innerHTML = "Here's your current account: " + ethereum.selectedAddress
+		
+		const contractName = await smartContractInstance.methods.contractName().call()
+		const scDisplayName = document.getElementById("sc-name")
+		scDisplayName.innerHTML = "Smart Contract Name: " + contractName;
+
     }
 
 })
@@ -566,7 +571,10 @@ ssGetValue.onclick = async () => {
     console.log(tokens)
 
     const ssDisplayValue = document.getElementById("ss-display-value")
-    ssDisplayValue.innerHTML = "Minted NFTs: " + tokens
+	    ssDisplayValue.innerHTML = "Minted NFTs: "
+	tokens.forEach(element => {
+		ssDisplayValue.innerHTML += "<div>" + element.id + "&nbsp;" + element.uri +"</div>"
+	});
     
 }
 
