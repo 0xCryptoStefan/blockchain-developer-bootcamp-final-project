@@ -1,6 +1,6 @@
 
 // Ganache instance of contract
-const contractAddress = "0x177f374f1e271214b306FDEc707B71d7cEF16F8A"
+const contractAddress = "0x5b41FcdC16c70FC37807aB308c913DdAA7aeB15D"
 
 // Ganache-deployed contract ABI
 const contractABI = [
@@ -255,7 +255,20 @@ const contractABI = [
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "nonpayable",
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintCost",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -298,6 +311,32 @@ const contractABI = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_state",
+				"type": "bool"
+			}
+		],
+		"name": "pause",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "paused",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -375,6 +414,19 @@ const contractABI = [
 			}
 		],
 		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newMintCost",
+				"type": "uint256"
+			}
+		],
+		"name": "setCost",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -527,7 +579,17 @@ ssSubmit.onclick = async () => {
 
     smartContractInstance.setProvider(window.ethereum)
 
-    await smartContractInstance.methods.mint(ethereum.selectedAddress, ssValue).send({from: ethereum.selectedAddress})
+	let mintCost = 10000000000000000;
+	const contractOwner = await smartContractInstance.methods.owner().call();
+	console.log(contractOwner);
+	if (ethereum.selectedAddress == contractOwner.toLowerCase()) {
+		mintCost = 0;
+	}
+	else {
+		mintCost = await smartContractInstance.methods.mintCost().call();
+	}
+	
+    await smartContractInstance.methods.mint(ethereum.selectedAddress, ssValue).send({from: ethereum.selectedAddress,value: mintCost})
     // await smartContract.mint(accounts[0], uri);
 }
 

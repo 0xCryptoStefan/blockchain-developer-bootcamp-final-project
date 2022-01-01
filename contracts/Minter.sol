@@ -16,7 +16,9 @@ contract Minter is ERC721, Ownable {
     using Strings for uint256;
     Counters.Counter _tokenIDs;
     mapping(uint256 => string) _tokenURIs; // this line is to map the tokenIDs to the tokenURIs for the images / metadata associated with the NFT
-    string public contractName = "Smart Contract";
+    string public contractName = "ConsenSys Blockchain Developer Bootcamp Final Project Smart Contract";
+    uint256 public mintCost = 0.01 ether; // when updating the mintCost with the function, this needs to be provided in wei
+    bool public paused = false;
 
 /* 
 * Events
@@ -72,7 +74,12 @@ event Minted(uint256 newID);
     /// @param recipient The ID of the token with which to associate the input URI _tokenURI
     /// @param uri The input URI to be associated with the tokenID
     /// @return newID The ID of the NFT that has just been minted
-    function mint(address recipient, string memory uri) public returns(uint256) { // review whether this should be a public function or not.  Currently want this public to allow anyone to mint, but will need to review if I add a function to allow free mints for contract Owner (onlyOwner modifier or update to use full RBAC) versus other people
+    function mint(address recipient, string memory uri) public payable returns(uint256) { // review whether this should be a public function or not.  Currently want this public to allow anyone to mint, but will need to review if I add a function to allow free mints for contract Owner (onlyOwner modifier or update to use full RBAC) versus other people
+        require(!paused, "Minting is paused. The contract owner needs to unpause the contract.");
+        if (msg.sender != owner()) {
+            require(msg.value >= mintCost, "Insufficient funds for minting. Only the contract owner can mint free NFTs.");
+        }
+        
         uint256 newID = _tokenIDs.current(); // Get the current state of _tokenIDs to ensure minting the next available in the series
         _mint(recipient, newID); // calling the _mint() function from the ERC721 standard
         _setTokenURI(newID, uri); // this function calls the internal function to set the URI based on the input to THIS function (uri) and the NFT to be minted (newID)
@@ -104,5 +111,19 @@ event Minted(uint256 newID);
     }
 
 
+    /// @notice This function pauses and unpauses the minting function
+    /// @dev This function takes a single boolean variable to update the paused/unpaused state of minting
+    /// @param _state The boolean value (true or false) to set the status of the minting function
+    function pause(bool _state) public onlyOwner() {
+        paused = _state;
+    }
+
+
+    /// @notice This function updates the mint cost for the NFTs
+    /// @dev This function updates the mint cost for the NFTs
+    /// @param _newMintCost The new mint cost in wei / Ether
+    function setCost(uint256 _newMintCost) public onlyOwner() {
+        mintCost = _newMintCost;
+    }
 
 }
