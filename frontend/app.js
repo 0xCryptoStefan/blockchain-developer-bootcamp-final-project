@@ -1,6 +1,6 @@
 
 // Ganache instance of contract
-const contractAddress = "0xD7C7C6c9a2aF429666a0320A0CE892474dAE5243"
+const contractAddress = "0x8BA38a9cF5b943d46CB571833B1Ca2afC54aFCA6"
 
 // Ganache-deployed contract ABI
 const contractABI = [
@@ -596,7 +596,13 @@ ssSubmit.onclick = async () => {
 		mintCost = await smartContractInstance.methods.mintCost().call();
 	}
 	
-    await smartContractInstance.methods.mint(ethereum.selectedAddress, ssValue).send({from: ethereum.selectedAddress,value: mintCost})
+    await smartContractInstance.methods.mint(ethereum.selectedAddress, ssValue)
+			.send({from: ethereum.selectedAddress,value: mintCost})
+			.then(function(receipt){
+			console.log(receipt)// receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
+			const txHash = document.getElementById("tx-hash")
+	    	txHash.innerHTML = "Transaction Hash: <a href='https://kovan.etherscan.io/tx/" + receipt.transactionHash + "'>" + receipt.transactionHash + "</a>."
+			});
     // await smartContract.mint(accounts[0], uri);
 }
 
