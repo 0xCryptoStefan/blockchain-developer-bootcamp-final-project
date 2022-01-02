@@ -1,6 +1,9 @@
 
 // Ganache instance of contract
-const contractAddress = "0x8BA38a9cF5b943d46CB571833B1Ca2afC54aFCA6"
+// const contractAddress = "0x8BA38a9cF5b943d46CB571833B1Ca2afC54aFCA6"
+
+// Kovan instance of contract
+const contractAddress = "0xD7C7C6c9a2aF429666a0320A0CE892474dAE5243"
 
 // Ganache-deployed contract ABI
 const contractABI = [
