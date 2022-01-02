@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple dApp</title>
+    <title>NFT Public Notes App</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </head>
 <body>
-    <h1>My Simple dApp</h1>
+    <h1>NFT Public Notes App</h1>
 
+    <div id="dapp-intro">This is a simple Decentralised Application (dApp), developed for the ConsenSys Blockchain Developer Bootcamp final project by Stefan. It makes use of NFTs to store messages on the blockchain and allows users to retrieve and display all committed messages (NFTs).</div>
     <div id="mm-detected"></div>
 
     <!-- If I put this into a div bracket, can I then remove the button and replace with address on connect? -->
@@ -17,13 +18,10 @@
 
     <div id="mm-current-account"></div>
     <div id="sc-name">Smart Contract Name: </div>
+    <div id="mint-cost">Mint Cost for Connected Account: </div>
 
     <input id="ss-input-box" type="string" placeholder="Provide input"/>
     <button id="ss-input-button">Mint</button>
-
-    <button id="ss-retrieve-button">Retrieve Value</button>
-    <div id="bc-stored-data"></div>
-    <!-- <div id="bc-stored-data-f2"></div> -->
 
     <div>
         <button id="ss-get-value">Get Minted NFTs</button>

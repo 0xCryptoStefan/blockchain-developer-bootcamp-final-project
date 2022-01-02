@@ -1,6 +1,6 @@
 
 // Ganache instance of contract
-const contractAddress = "0x5b41FcdC16c70FC37807aB308c913DdAA7aeB15D"
+const contractAddress = "0xD7C7C6c9a2aF429666a0320A0CE892474dAE5243"
 
 // Ganache-deployed contract ABI
 const contractABI = [
@@ -530,6 +530,11 @@ const contractABI = [
 // Validate app is loading
 console.log("Page loaded as expected.")
 
+// Set core app variables and constants
+var web3 = new Web3(window.ethereum)
+const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress) // added
+smartContractInstance.setProvider(window.ethereum) // added
+
 // 1. Detect whether MetaMask is or is not installed
 window.addEventListener('load', function() {
     if (typeof window.ethereum !== 'undefined') {
@@ -545,10 +550,6 @@ window.addEventListener('load', function() {
     // 2. Allow the user to get access to MetaMask / Connect to MetaMask
     const mmEnable = document.getElementById('mm-connect');
 
-    // mmEnable.onclick = () => {
-    //     console.log("boop beep")
-    // }
-
     mmEnable.onclick = async () => {
         await ethereum.request({ method: 'eth_requestAccounts'})
 
@@ -559,21 +560,27 @@ window.addEventListener('load', function() {
 		const scDisplayName = document.getElementById("sc-name")
 		scDisplayName.innerHTML = "Smart Contract Name: " + contractName;
 
+		let mintCost = 10000000000000000;
+		const displayMintCost = document.getElementById("mint-cost")
+		const contractOwnerCheck = await smartContractInstance.methods.owner().call();
+		console.log(contractOwnerCheck);
+		if (ethereum.selectedAddress == contractOwnerCheck.toLowerCase()) {
+			mintCost = 0;
+			displayMintCost.innerHTML = "Mint Cost for Connected Account: No cost. Owner connected.";		
+		}
+		else {
+			mintCost = await smartContractInstance.methods.mintCost().call();
+			displayMintCost.innerHTML = "Mint Cost for Connected Account: " + Web3.utils.fromWei(mintCost, 'ether') + " Ether.";		
+		}
     }
 
 })
-
-var web3 = new Web3(window.ethereum)
-const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress) // added
-smartContractInstance.setProvider(window.ethereum) // added
 
 const ssSubmit = document.getElementById('ss-input-button');
 
 ssSubmit.onclick = async () => {
     const ssValue = document.getElementById('ss-input-box').value;
     console.log(ssValue)
-
-    // var web3 = new Web3(window.ethereum)
 
     const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress)
 
@@ -593,38 +600,6 @@ ssSubmit.onclick = async () => {
     // await smartContract.mint(accounts[0], uri);
 }
 
-const ssRetrieve = document.getElementById('ss-retrieve-button');
-
-// ssRetrieve.onclick = async () => {
-//     const bcStoredData = document.getElementById('bc-stored-data');
-    
-//     const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress)
-
-//     smartContractInstance.setProvider(window.ethereum)
-
-//     let tempVar = smartContractInstance.methods.retrieve().call();
-//     bcStoredData.innerHTML = "Current stored value: " + tempVar[1];
-//     smartContractInstance.methods.retrieve().call().then(console.log);
-//     // await smartContractInstance.methods.store(ssValue).send({from: ethereum.selectedAddress})
-    
-// }
-
-
-// window.addEventListener('load', function() {
-//     const bcStoredData = document.getElementById('bc-stored-data');
-//     const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress);
-    
-//     bcStoredData.innerHTML = smartContractInstance.methods.retrieve().call();
-//     smartContractInstance.methods.retrieve().call().then(console.log);
-
-//     let bcStoredDataF2 = document.getElementById('bc-stored-data-f2');
-//     bcStoredDataF2.innerHTML = "Current stored value: " + smartContractInstance.methods.retrieve().call();
-
-//     })
-
-
-// NEW CODE STARTS HERE
-
 const ssGetValue = document.getElementById('ss-get-value')
 
 ssGetValue.onclick = async () => {
@@ -639,61 +614,3 @@ ssGetValue.onclick = async () => {
 	});
     
 }
-
-
-
-// NEW CODE ENDS HERE
-
-
-
-
-
-// I don't know why the below works
-// Modified some code from: https://medium.com/coinmonks/a-really-simple-smart-contract-on-how-to-insert-value-into-the-ethereum-blockchain-and-display-it-62c455610e98
-// ssRetrieve.onclick = // location.reload();
-// // getValue();
-
-// //function to retrieve the last inserted value on the blockchain
-// function getValue() {
-//     try {
-//     //instantiate and connect to contract address via Abi
-//     // var myAbi = web3.eth.contract(contractABI);
-//     // var myfunction = myAbi.at(contractAddress);
-
-//     const bcStoredData = document.getElementById('bc-stored-data');
-//     const smartContractInstance = new web3.eth.Contract(contractABI, contractAddress)
-    
-//     //     smartContractInstance.setProvider(window.ethereum)
-    
-//     //     let tempVar = smartContractInstance.methods.retrieve().call();
-//     //     bcStoredData.innerHTML = "Current stored value: " + tempVar[1];
-//     //     smartContractInstance.methods.retrieve().call().then(console.log);
-
-
-
-//     //call the get function of our smartContractInstance contract
-//     smartContractInstance.methods.retrieve().call(function (err, value) {
-//     if (err) { console.log(err) }
-//     if (value) {
-//     //display value on the webpage
-//     document.getElementById("bc-stored-data").innerHTML = "Current stored value: " + value;
-//     }
-//     });
-//     }
-//     catch (err) {
-//     document.getElementById("bc-stored-data").innerHTML = err;
-//     }
-//     }
-
-
-// const ssGetValue = document.getElementById('ss-get-value')
-
-// ssGetValue.onclick = async () => {
-//     console.log("Button has been clicked")
-//     var value = await smartContractInstance.methods.retrieve().call()
-//     console.log("This is the stored value: " + value)
-
-//     const ssDisplayValue = document.getElementById("ss-display-value")
-//     ssDisplayValue.innerHTML = "Current Simple Storage Value: " + value
-    
-// }
