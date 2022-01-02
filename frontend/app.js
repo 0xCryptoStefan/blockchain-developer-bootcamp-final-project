@@ -566,7 +566,7 @@ window.addEventListener('load', function() {
 		let mintCost = 10000000000000000;
 		const displayMintCost = document.getElementById("mint-cost")
 		const contractOwnerCheck = await smartContractInstance.methods.owner().call();
-		console.log(contractOwnerCheck);
+		// console.log(contractOwnerCheck);
 		if (ethereum.selectedAddress == contractOwnerCheck.toLowerCase()) {
 			mintCost = 0;
 			displayMintCost.innerHTML = "Mint Cost for Connected Account: No cost. Owner connected.";		
@@ -591,7 +591,7 @@ ssSubmit.onclick = async () => {
 
 	let mintCost = 10000000000000000;
 	const contractOwner = await smartContractInstance.methods.owner().call();
-	console.log(contractOwner);
+	// console.log(contractOwner);
 	if (ethereum.selectedAddress == contractOwner.toLowerCase()) {
 		mintCost = 0;
 	}
@@ -612,7 +612,7 @@ ssSubmit.onclick = async () => {
 const ssGetValue = document.getElementById('ss-get-value')
 
 ssGetValue.onclick = async () => {
-    console.log("Button has been clicked")
+    // console.log("Button has been clicked")
     let tokens = await smartContractInstance.methods.getAllTokens().call()
     console.log(tokens)
 
