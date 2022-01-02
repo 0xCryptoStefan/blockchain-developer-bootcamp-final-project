@@ -7,8 +7,6 @@
 - [ ] Smart Contract: Deploy to Kovan testnet
 - [ ] Smart Contract: Add whitelisting function
 
-- [ ] Front End: Retrieve mint cost from the Smart Contract and display on the front end
-
 - [ ] Documentation: Write avoiding common attacks document with SWC references
 - [ ] Documentation: Write design pattern decisions document
 - [ ] Documentation: Write deployed address document
@@ -34,3 +32,4 @@
 - [x] Front End: Displays information from your smart contract
 - [x] Front End: Allows a user to submit a transaction to update smart contract state
 - [x] Front End: Update mint contract call in JavaScript to include the msg.value to be sent into the mint function (part of the .call() parameters)
+- [x] Front End: Retrieve mint cost from the Smart Contract and display on the front end
