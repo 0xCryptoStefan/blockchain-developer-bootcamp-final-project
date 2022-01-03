@@ -5,21 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFT Public Notes App</title>
+    <link rel="stylesheet" href="basic.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+    <style>
+		main,footer {
+			margin: 0 auto;
+			width: 60%;
+			text-align: left;
+			padding: 0 20px;
+		}
+
+		section>section {
+			color: #fff;
+			background-color: var(--c1);
+			padding: 15px;
+			margin: 10px 8px 10px 8px;
+			text-align: center;
+		}
+
+		@media (max-width: 481px) {
+			body {font-size: 18px}
+			main,footer {width: 98%}
+			section,article {flex:none; width:100%; margin-left: 0;}
+		}
+	</style>
+
 </head>
 <body>
+    <main>
     <h1>NFT Public Notes App</h1>
 
-    <div id="dapp-intro">This is a simple Decentralised Application (dApp), developed for the ConsenSys Blockchain Developer Bootcamp final project by Stefan. It makes use of NFTs to store messages on the blockchain and allows users to retrieve and display all committed messages (NFTs).<br/>Please connect to the Kovan testnet to use this dApp.</div>
+    <section>
+        <article>
+            <p>This is a simple Decentralised Application (dApp), developed for the ConsenSys Blockchain Developer Bootcamp final project by Stefan. It makes use of NFTs to store messages on the blockchain and allows users to retrieve and display all committed messages (NFTs).<br/>Please connect to the Kovan testnet to use this dApp. </p>
+        </article>
+    </section>
+
+    <!-- <div id="dapp-intro"></div> -->
     <div id="mm-detected"></div>
 
     <!-- If I put this into a div bracket, can I then remove the button and replace with address on connect? -->
     <button id="mm-connect">Connect to MetaMask</button>
 
     <div id="mm-current-account"></div>
-    <div id="sc-name">Smart Contract Name: </div>
-    <div id="mint-cost">Mint Cost for Connected Account: </div>
-
+    
     <input id="ss-input-box" type="string" placeholder="Provide note text"/>
     <button id="ss-input-button">Mint</button>
     <div id="tx-hash"></div>
@@ -29,7 +59,21 @@
     </div>
     <div id="ss-display-value">Minted NFTs: </div>
 
-    <div id="useful-links"><a href="https://faucets.chain.link/">Kovan Faucet</a> || <a href="https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project">GitHub</a></div>
+    <section>
+        <article>
+            <div id="sc-name">Smart Contract Name: </div>
+        </article>
+        <article>
+            <div id="mint-cost">Mint Cost for Connected Account: </div>
+        </article>
+    </section>
+
+    <hr>
+    </main>
+
+    <footer>
+    <div id="useful-links"><p><a href="https://faucets.chain.link/">Kovan Faucet</a> || <a href="https://github.com/0xCryptoStefan/blockchain-developer-bootcamp-final-project">GitHub</a></p></div>
+    </footer>
 
     <script src="app.js"></script>
 </body>
