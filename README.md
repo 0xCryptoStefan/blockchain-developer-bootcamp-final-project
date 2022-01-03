@@ -1,6 +1,14 @@
 # Blockchain Developer Bootcamp Final Project
 
 ## Dependencies
+- dotenv
+- web3
+- openzeppelin-soidity
+- truffle/hdwallet-provider
+<br/>
+Install dependencies using:<br/>
+`npm install`<br/>
+
 `npm init -y`<br/>
 `npm add`<br/>
 `npm install --save-exact openzeppelin-solidity` -  is this correct?<br/>
@@ -8,20 +16,13 @@
 `npm install @truffle/hdwallet-provider`
 
 ## Starting the client application
-`cd client`<br/>
-`npm run start`
+Open the project in VSCode and use the Live Server plugin to open ./frontend/index.html in the browser.
 
 ## Running Smart Contract tests
 `truffle test`
 
-## Running client application tests
-`cd client`<br/>
-`npm run test`
-
-## Building the client application for production deployment
-`cd client`<br/>
-`npm run build`
-
+## Deployed Address
+https://blockchain-developer-bootcamp-final-project-gamma.vercel.app/
 <br/>
 
 # Original ReadMe prior to starting the project

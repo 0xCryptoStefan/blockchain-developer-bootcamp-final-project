@@ -10,6 +10,7 @@
 - [ ] Documentation: Write avoiding common attacks document with SWC references
 - [ ] Documentation: Write design pattern decisions document
 - [ ] Documentation: Write deployed address document
+- [ ] Documentation: Screenrecording of live application
 
 - [ ] Tooling: Write automation scripts
 

@@ -17,9 +17,9 @@ Please answer the following questions. Does your project:
 
 4. Contain a Markdown file named design_pattern_decisions.md and avoiding_common_attacks.md? YES/NO
 
-5. Have at least five smart contract unit tests that pass? YES/NO
+5. Have at least five smart contract unit tests that pass? YES
 
-6. Contain a `deployed_address.txt` file which contains the testnet address and network where your contract(s) have been deployed? YES/NO
+6. Contain a `deployed_address.txt` file which contains the testnet address and network where your contract(s) have been deployed? YES
 
 7. Have a frontend interface built with a framework like React or HTML/CSS/JS that:
 --Detects the presence of MetaMask
@@ -28,7 +28,7 @@ Please answer the following questions. Does your project:
 --Allows a user to submit a transaction to update smart contract state
 --Updates the frontend if the transaction is successful or not? YES/NO
 
-8. Hosted on Github Pages, Heroku, Netlify, Fleek, or some other free frontend service that gives users a public interface to your decentralized application? (That address should be in your README.md document) YES/NO
+8. Hosted on Github Pages, Heroku, Netlify, Fleek, or some other free frontend service that gives users a public interface to your decentralized application? (That address should be in your README.md document) YES
 
 9. Have clear instructions for: 
 1) Installing dependencies for your project 
