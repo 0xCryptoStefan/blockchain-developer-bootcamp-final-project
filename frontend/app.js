@@ -561,7 +561,7 @@ window.addEventListener('load', function() {
 		
 		const contractName = await smartContractInstance.methods.contractName().call()
 		const scDisplayName = document.getElementById("sc-name")
-		scDisplayName.innerHTML = "Smart Contract Name: " + contractName;
+		scDisplayName.innerHTML = "<h4>Smart Contract Name</h4><p>" + contractName + "</p>";
 
 		let mintCost = 10000000000000000;
 		const displayMintCost = document.getElementById("mint-cost")
@@ -569,11 +569,11 @@ window.addEventListener('load', function() {
 		// console.log(contractOwnerCheck);
 		if (ethereum.selectedAddress == contractOwnerCheck.toLowerCase()) {
 			mintCost = 0;
-			displayMintCost.innerHTML = "Mint Cost for Connected Account: No cost. Owner connected.";		
+			displayMintCost.innerHTML = "<h4>Mint Cost</h4><p>No cost. Owner connected.</p>";		
 		}
 		else {
 			mintCost = await smartContractInstance.methods.mintCost().call();
-			displayMintCost.innerHTML = "Mint Cost for Connected Account: " + Web3.utils.fromWei(mintCost, 'ether') + " Ether.";		
+			displayMintCost.innerHTML = "<h4>Mint Cost</h4><p>" + Web3.utils.fromWei(mintCost, 'ether') + " Ether.</p>";		
 		}
     }
 
@@ -604,7 +604,8 @@ ssSubmit.onclick = async () => {
 			.then(function(receipt){
 			console.log(receipt)// receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 			const txHash = document.getElementById("tx-hash")
-	    	txHash.innerHTML = "Transaction Hash: <a href='https://kovan.etherscan.io/tx/" + receipt.transactionHash + "'>" + receipt.transactionHash + "</a>."
+	    	txHash.innerHTML = "<section><article><h4>Transaction Hash</h4><p><a href='https://kovan.etherscan.io/tx/" + receipt.transactionHash + "'>" + receipt.transactionHash + "</a>.</p></article></section>"
+				// Transaction Hash: <a href='https://kovan.etherscan.io/tx/" + receipt.transactionHash + "'>" + receipt.transactionHash + "</a>."
 			});
     // await smartContract.mint(accounts[0], uri);
 }
@@ -617,9 +618,9 @@ ssGetValue.onclick = async () => {
     console.log(tokens)
 
     const ssDisplayValue = document.getElementById("ss-display-value")
-	    ssDisplayValue.innerHTML = "Minted NFTs: "
+	ssDisplayValue.innerHTML = "<h4>Minted NFTs</h4>"
 	tokens.forEach(element => {
-		ssDisplayValue.innerHTML += "<div>" + element.id + "&nbsp;" + element.uri +"</div>"
+		ssDisplayValue.innerHTML += "<div>" + element.id + "&nbsp; &nbsp;" + element.uri +"</div>"
 	});
-    
+	
 }
