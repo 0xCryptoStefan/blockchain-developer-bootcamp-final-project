@@ -1,10 +1,10 @@
 ## To Do List
 
 ### Doing
-- [ ] Front End: Updates the frontend if the transaction is successful or not
+N/A
 
 ### Backlog
-- [ ] Smart Contract: Deploy to Kovan testnet
+
 - [ ] Smart Contract: Add whitelisting function
 
 - [ ] Documentation: Screenrecording of live application
@@ -23,6 +23,7 @@
 - [x] Smart Contract: Add mintCost to the Smart Contract
 - [x] Smart Contract: Add withdraw function
 - [x] Smart Contract: Add mint fee and update minting function
+- [x] Smart Contract: Deploy to Kovan testnet
 - [x] Front End: Sign up for front-end hosting
 - [x] Front End: Write front-end application
 - [x] Front End: Detects the presence of MetaMask
@@ -31,6 +32,7 @@
 - [x] Front End: Allows a user to submit a transaction to update smart contract state
 - [x] Front End: Update mint contract call in JavaScript to include the msg.value to be sent into the mint function (part of the .call() parameters)
 - [x] Front End: Retrieve mint cost from the Smart Contract and display on the front end
+- [x] Front End: Updates the frontend if the transaction is successful or not
 - [x] Documentation: Write avoiding common attacks document with SWC references
 - [x] Documentation: Write design pattern decisions document
 - [x] Documentation: Write deployed address document
