@@ -36,7 +36,7 @@ module.exports = {
   
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
-  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
+  contracts_build_directory: path.join(__dirname, "frontend/contracts"),
   
   /**
    * Networks define how you connect to your ethereum client and let you set the
