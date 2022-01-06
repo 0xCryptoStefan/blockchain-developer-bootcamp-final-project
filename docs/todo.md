@@ -7,8 +7,6 @@ N/A
 
 - [ ] Smart Contract: Add whitelisting function
 
-- [ ] Documentation: Screenrecording of live application
-
 - [ ] Tooling: Write automation scripts
 
 ### Done
@@ -36,3 +34,4 @@ N/A
 - [x] Documentation: Write avoiding common attacks document with SWC references
 - [x] Documentation: Write design pattern decisions document
 - [x] Documentation: Write deployed address document
+- [x] Documentation: Screenrecording of live application
