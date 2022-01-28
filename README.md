@@ -3,7 +3,7 @@
 ## Project description
 A public note publishing dApp using NFTs that allows a user to mint an ERC-721 compliant NFT. The user provides their input to mint their public note on the blockchain as a NFT. The dApp also allows a user to see all minted public notes.
 
-The dApp allows the user to connect their wallet by clicking a button in the front-end application to pop up the MetaMask interface, provide input to be included in their NFT (their public note)), pay a fee, mint the note as an NFT, and view all minted NFT notes.
+The dApp allows the user to connect their wallet by clicking a button in the front-end application to pop up the MetaMask interface, provide input to be included in their NFT (their public note), pay a fee, mint the note as an NFT, and view all minted NFT notes.
 
 ## Directory Structure
 
