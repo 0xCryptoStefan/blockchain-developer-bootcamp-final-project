@@ -3,6 +3,7 @@
 pragma solidity 0.8.0; // using ^0.8.0 as getting an error but would like to fix the version to 0.8.0 specifically based on the sceurity recommendation in the course
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/utils/Counters.sol";
 import "openzeppelin-solidity/contracts/access/Ownable.sol"; // using this for now as simpler to implement than full RBAC
 
@@ -23,13 +24,7 @@ contract Minter is ERC721, Ownable {
 /* 
 * Events
 */
-
-// <LogForSale event: sku arg>
 event Minted(uint256 newID);
-// <LogSold event: sku arg>
-// event LogSold(uint sku);
-
-
 
     // Do I need to declare this as public?  This is intended to simplify pulling all minted NFT IDs and associated URIs into the front-end dApp
     struct allTokens {
@@ -56,14 +51,12 @@ event Minted(uint256 newID);
     /// @return allTokens[] which is an array of all of the tokens minted to-date that can be stepped through in the front-end to display each of the NFTs
     function getAllTokens() public view returns(allTokens[] memory) {
         uint256 latestMintID = _tokenIDs.current(); // Get the ID of the most recently minted token
-        uint256 counter = 0; // initiate the counter to 0
         allTokens[] memory resultArray = new allTokens[](latestMintID); // 
         for(uint256 i=0; i < latestMintID; i++) {
-            if(_exists(counter)) {
-                string memory uri = tokenURI(counter); // get the URI associated with the tokenID with number counter
-                resultArray[counter] = allTokens(counter, uri); // add the result to the results array -> resultArray
-            }
-            counter++;
+            if(_exists(i)) {
+                string memory uri = tokenURI(i); // get the URI associated with the tokenID with number counter
+                resultArray[i] = allTokens(i, uri); // add the result to the results array -> resultArray
+            }            
         }
         return resultArray;
     }
@@ -96,7 +89,7 @@ event Minted(uint256 newID);
     /// @return _tokenURI The URI of the the token requested with ID matching tokenID
     // This function tokenURI() is to allow other applications to be able to view the URI and associated metadata for the tokenID that is input.
     // override is needed to ensure no conflict with the underlying tokenURI() from the ERC721 standard - can I adjust to getTokenURI() for improved readability or will that not adhere to the standard for 721 and not work on OpenSea etc?
-    function tokenURI(uint256 tokenID) public view virtual override returns(string memory) { // this is to allo
+    function tokenURI(uint256 tokenID) public view virtual override returns(string memory) {
         require(_exists(tokenID)); // ensure there is a break if someone calls this function for a tokenID that does not exist in the mapping
         string memory _tokenURI = _tokenURIs[tokenID]; // get the value of the URI for tokenID from the _tokenURIs mapping
         return _tokenURI;
@@ -114,7 +107,7 @@ event Minted(uint256 newID);
     /// @notice This function pauses and unpauses the minting function
     /// @dev This function takes a single boolean variable to update the paused/unpaused state of minting
     /// @param _state The boolean value (true or false) to set the status of the minting function
-    function pause(bool _state) public onlyOwner() {
+    function pause(bool _state) public onlyOwner {
         paused = _state;
     }
 
@@ -122,8 +115,15 @@ event Minted(uint256 newID);
     /// @notice This function updates the mint cost for the NFTs
     /// @dev This function updates the mint cost for the NFTs
     /// @param _newMintCost The new mint cost in wei / Ether
-    function setCost(uint256 _newMintCost) public onlyOwner() {
+    function setCost(uint256 _newMintCost) public onlyOwner {
         mintCost = _newMintCost;
+    }
+
+    /// @notice This function allows the Owner to withdraw ERC20 tokens from the contract address
+    /// @dev This function allows the Owner to withdraw ERC20 tokens from the contract address
+    /// @param _tokenContractAddress The contract address of the ERC20 token to be withdrawn from the smart contract
+    function withdrawERC20(address _tokenContractAddress) public onlyOwner {
+        require(IERC20(_tokenContractAddress).transfer(msg.sender, IERC20(_tokenContractAddress).balanceOf(address(this))), "Failed to withdraw ERC20 tokens");
     }
 
 }

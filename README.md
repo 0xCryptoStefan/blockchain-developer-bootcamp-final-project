@@ -21,7 +21,7 @@ The dApp allows the user to connect their wallet by clicking a button in the fro
 ## Dependencies
 - dotenv
 - web3
-- openzeppelin-soidity
+- openzeppelin-solidity
 - truffle/hdwallet-provider
 
 Install dependencies using:<br/>
